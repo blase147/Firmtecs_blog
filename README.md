@@ -1,3 +1,7 @@
+
+![](https://img.shields.io/badge/Microverse-blueviolet)
+<a name="readme-top"></a>
+
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -16,22 +20,46 @@
 
 # 📖 Firmtecs_blog <a name="about-project"></a>
 
-> This Firmtecs_blog app will be a classic example of a blog website. I created a fully functional website that will show the list of posts and encourage readers to interact with them by adding comments and liking posts.
-
-Please click on the video below 👇 for more explanation
-
-## Explanation video
-
-[]()
+This Firmtecs_blog app will be a classic example of a blog website. I created a fully functional website that will show the list of posts and encourage readers to interact with them by adding comments and liking posts.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
+<details>
+  <summary>Client</summary>
   <ul>
-    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
-    <li><a href="https://www.postgresql.org/">Postgres</a></li>
+    <li><a href="https://github.com/microverseinc/linters-config/tree/master/ror">Linters</a></li>
   </ul>
+</details>
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://rubyonrails.org/">ROR</a></li>
+  </ul>
+</details>
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
+
+## Key Features <a name="key-features"></a>
+
+- **Use RubyGems as a software package system.**
+- **Use database migration files to maintain database schema**
+- **Understand ORM**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [N/A](https://github.com/blase147/firmtecs_blog.io)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -95,17 +123,39 @@ rspec ./spec --format documentation
 
 [GitHub](https://github.com/blase147) | [Twitter](https://twitter.com/ChukwumaMosanya) | [LinkedIn](https://www.linkedin.com/in/chukwuma-mosanya)
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- Views.
+- Forms
+- Validations, Model specs, and n+1 problems.
+- Add Devise.
+- Add authorization rules.
+- Integration specs for Views.
+- Add API endpoints.
+- API documentation.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/blase147/creating_data_model/issues/new).
+Feel free to check the [issues page](https://github.com/blase147/firmtecs_blog/issues/new).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
-Give this project a star if you like it !
+> Give this project a star if you like it...
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
