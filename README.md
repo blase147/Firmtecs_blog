@@ -23,7 +23,7 @@
 - [⭐️ Show your support](#support)
 - [📝 License](#license)
 
-# 📖 Firmtecs_blog app <a name="about-project"></a>
+# 📖 Firmtecs_blog <a name="about-project"></a>
 
 > This Firmtecs_blog app will be a classic example of a blog website. I created a fully functional website that will show the list of posts and encourage readers to interact with them by adding comments and liking posts.
 
