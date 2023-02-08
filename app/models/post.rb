@@ -5,16 +5,18 @@ class Post < ApplicationRecord
 
   after_save :update_posts_counter
 
-  validates :title, presence: true
-  validates :title, length: { maximum: 250 }
-  validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
-  validates :comments_counter, numericality: { greater_than_or_equal_to: 0 }
+  validates :text, presence: true
+  validates :title, presence: true, length: { in: 3..250 }
+  validates :comments_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :likes_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  def increment_posts_counter
-    author.increment!(:posts_counter)
+  def recent_comments
+    comments.order(created_at: :desc).limit(5)
   end
 
-  def recent_comment_counter
-    comments.order(created_at: :desc).limit(5)
+  private
+
+  def update_posts_counter
+    author.increment!(:posts_counter)
   end
 end

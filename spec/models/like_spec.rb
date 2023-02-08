@@ -1,12 +1,30 @@
-require 'rails_helper'
+require_relative '../rails_helper'
 
 RSpec.describe Like, type: :model do
-  it { should belong_to :post }
-  it { should belong_to :author }
+  let(:user) { User.new(name: 'Tom & Jerry', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Best friends', posts_counter: 0) }
+  let(:post) do
+    Post.new(title: 'The Great Adventure', text: 'The story of Tom and Jerry', author: user, comments_counter: 0,
+             likes_counter: 0)
+  end
+  subject { Like.new(author: user, post:) }
 
-  it 'Post likes counter can be set' do
-    subject.post = Post.new(author: @user, title: 'Post One', text: 'This is the post one')
-    subject.send(:increment_likes_counter)
-    expect(subject.post.likes_counter).to be(1)
+  before { subject.save }
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
+  it 'is not valid without an author' do
+    subject.author = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a post' do
+    subject.post = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'increments the likes_counter of the associated post after saving' do
+    expect { subject.save }.to change { post.reload.likes_counter }.by(1)
   end
 end

@@ -1,24 +1,63 @@
-require 'rails_helper'
+require_relative '../rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) do
-    User.new(
-      name: 'Tom',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'Teacher from Mexico.',
-      posts_counter: 5
-    )
-  end
+  subject { User.new(name: 'Tom & Jerry', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Best friends') }
 
   before { subject.save }
 
-  it { should have_many :posts }
-  it { should have_many :comments }
-  it { should have_many :likes }
-  it { should validate_presence_of(:name) }
-  it { should validate_numericality_of(:posts_counter) }
+  it 'name should be present' do
+    subject.name = nil
+    expect(subject).to_not be_valid
+  end
 
-  it 'Should output 0 to 3 last comment when recent_posts is called' do
-    expect(subject.recent_post_counter.length).to be_between(0, 3)
+  it 'name should not be too short' do
+    subject.name = 'a'
+    expect(subject).to_not be_valid
+  end
+
+  it 'name should not be too long' do
+    subject.name = 'a' * 30
+    expect(subject).to_not be_valid
+  end
+
+  it 'name should be b/w 3 and 25 words' do
+    subject.name = 'a' * 5
+    expect(subject).to be_valid
+  end
+
+  it 'name should have valid value' do
+    expect(subject.name).to eql 'Tom & Jerry'
+  end
+
+  it 'photo should be present' do
+    subject.photo = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'photo should have valid value' do
+    expect(subject.photo).to eql 'https://unsplash.com/photos/F_-0BxGuVvo'
+  end
+
+  it 'bio should be present' do
+    subject.bio = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'bio should have vaid value' do
+    expect(subject.bio).to eql 'Best friends'
+  end
+
+  it 'posts_counter must not be less than 1' do
+    subject.posts_counter = -1
+    expect(subject).to_not be_valid
+  end
+
+  it 'should have posts counter greater than or euqal to 0' do
+    subject.posts_counter = 0
+    expect(subject).to be_valid
+  end
+
+  it 'should return 3 recent posts' do
+    expect(subject.recent_posts).to eq(subject.posts.order(created_at: :desc).limit(3))
   end
 end
