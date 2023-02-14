@@ -26,7 +26,7 @@
 
 # 📖 Firmtecs_blog <a name="about-project"></a>
 
-This Firmtecs_blog app will be a classic example of a blog website. I created a fully functional website that will show the list of posts and encourage readers to interact with them by adding comments and liking posts.
+This Firmtecs_blog app will be a classic example of a blog website. I'm creating a fully functional website that will show the list of posts and encourage readers to interact with them by adding comments and liking posts.
 
 ## 🛠 Built With <a name="built-with"></a>
 
