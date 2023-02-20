@@ -20,7 +20,7 @@ RSpec.describe 'Post Index', type: :system do
     end
 
     it 'shows the users username' do
-      expect(page).to have_content('Yasir')
+      expect(page).to have_content('Chukwuma')
     end
 
     it 'shows number of posts by user' do
