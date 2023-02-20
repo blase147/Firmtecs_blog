@@ -4,7 +4,7 @@ RSpec.describe 'Post Index', type: :system do
   describe 'post page' do
     before(:each) do
       @user = User.create(
-        name: 'Yasir Khan',
+        name: 'Chukwuma Mosanya',
         bio: 'Full Stack Web Developer',
         photo: 'https://picsum.photos/200/300'
       )
