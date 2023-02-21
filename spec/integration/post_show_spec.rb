@@ -2,17 +2,17 @@ require 'rails_helper'
 RSpec.describe 'Posts Show', type: :feature do
   before(:each) do
     @user = User.create(
-      name: 'Yasir Khan',
+      name: 'Chukwuma Mosanya',
       photo: 'https://picsum.photos/200/300',
       bio: 'Full Stack Web Developer',
-      PostsCounter: 0
+      posts_counter: 0
     )
 
     @user1 = User.create(
       name: 'Camilo Vela',
       bio: 'Web Developer',
       photo: 'https://picsum.photos/200/300',
-      PostsCounter: 5
+      posts_counter: 5
     )
 
     @post = Post.create(
@@ -37,7 +37,7 @@ RSpec.describe 'Posts Show', type: :feature do
 
     it 'displays the post author' do
       visit user_post_path(@user, @post.id)
-      expect(page).to have_content('Yasir Khan')
+      expect(page).to have_content('Chukwuma Mosanya')
     end
 
     it 'displays the comments counter' do

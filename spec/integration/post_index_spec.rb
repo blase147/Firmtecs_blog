@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'Post Index', type: :system do
   describe 'post page' do
     before(:each) do

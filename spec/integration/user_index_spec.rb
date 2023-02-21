@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'User Index Page', type: :feature do
   before(:each) do
     @user = User.create(name: 'Doraemon & Nobita', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                        bio: 'Best friends', PostsCounter: 12)
+                        bio: 'Best friends', posts_counter: 12)
   end
 
   describe 'User index page' do
@@ -27,7 +27,7 @@ RSpec.describe 'User Index Page', type: :feature do
 
     it 'shows the number of posts of each user' do
       User.all.each do |user|
-        expect(page).to have_content("Number of posts: #{user.PostsCounter}")
+        expect(page).to have_content("Number of posts: #{user.posts_counter}")
       end
     end
 
