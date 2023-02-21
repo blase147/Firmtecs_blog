@@ -68,6 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -83,10 +84,22 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.0)
     crass (1.0.6)
+    database_cleaner (2.0.1)
+      database_cleaner-active_record (~> 2.0.0)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.3)
     debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    devise (4.9.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.5.0)
     erubi (1.12.0)
     globalid (1.1.0)
@@ -128,6 +141,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.1-x64-mingw-ucrt)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     pg (1.4.5-x64-mingw-ucrt)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -150,6 +164,10 @@ GEM
       activesupport (= 7.0.4.2)
       bundler (>= 1.15.0)
       railties (= 7.0.4.2)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -166,6 +184,9 @@ GEM
     regexp_parser (2.6.2)
     reline (0.3.2)
       io-console (~> 0.5)
+    responders (3.1.0)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.2.5)
     rspec-core (3.12.1)
       rspec-support (~> 3.12.0)
@@ -208,6 +229,8 @@ GEM
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.7)
       tzinfo (>= 1.0.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -231,12 +254,15 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
+  database_cleaner
   debug
+  devise
   importmap-rails
   jbuilder
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
+  rails-controller-testing
   rspec-rails
   selenium-webdriver
   sprockets-rails
