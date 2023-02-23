@@ -12,7 +12,7 @@ class Api::LoginController < Api::ApplicationController
         email: @user.email
       }
       token = JWT.encode payload, Api::LoginController.hmac_secret, 'HS256'
-      render json: { token: token }
+      render json: { token: }
     else
       render json: { name: 'Fail' }
     end
