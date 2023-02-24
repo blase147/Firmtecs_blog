@@ -2,7 +2,7 @@ require 'jwt'
 
 class Api::LoginController < Api::ApplicationController
   skip_before_action :authenticate_user
-  @@hmac_secret = 'my$ecretK3y'
+  @hmac_secret = 'my$ecretK3y'
   def index
     @user = User.find_by_email(params[:email])
     if @user&.valid_password?(params[:password])
