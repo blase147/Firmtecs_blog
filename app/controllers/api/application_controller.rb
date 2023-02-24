@@ -6,22 +6,26 @@ class Api::ApplicationController < ActionController::API
     redirect_to root_url, alert: exception.message
   end
 
-  def after_sign_out_path_for
+  def after_sign_out_path_for(scope)
     new_user_session_path
   end
 
   protected
 
   def authenticate_user
-    header = request.headers['Authorization']
-    header = header.split.last if header
-    decoded_token = JWT.decode header, Api::LoginController.hmac_secret, true, { algorithm: 'HS256' }
-    payload = decoded_token[0]
-    @auth_user = User.find_by_id(payload['id']) if payload && payload['id']
-  rescue JWT::VerificationError
-    render json: {
-      msg: 'Invalid Token'
-    }
+    begin
+      header = request.headers['Authorization']
+      header = header.split(' ').last if header
+      decoded_token = JWT.decode header, Api::LoginController.hmac_secret, true, { algorithm: 'HS256' }
+      payload = decoded_token[0]
+      if payload && payload["id"]
+        @auth_user = User.find_by_id(payload["id"])
+      end
+    rescue JWT::VerificationError
+      render json: {
+        msg: "Invalid Token"
+      }
+    end
   end
 
   def configure_permitted_parameters
