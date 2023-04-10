@@ -61,10 +61,6 @@ This Firmtecs_blog app will be a classic example of a blog website. I'm creating
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [N/A](https://github.com/blase147/firmtecs_blog.io)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>

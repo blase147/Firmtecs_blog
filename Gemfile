@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.3'
 
+## Use JSON Web Token (JWT) for token based authentication
+gem 'jwt'
+
+## authorization
+gem 'cancancan'
+
 ## devise
 gem 'devise'
 
@@ -76,3 +82,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem 'active_model_serializers', '~> 0.10.13'
